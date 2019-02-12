@@ -2,12 +2,23 @@
 int main()
 {
 	double e = 0, add = 1;
-	int n;
+	int n, i;
 	scanf("%d", &n);
-	for (int i = 0; i < n; i++){
-		e = e + 1 / add;
-		printf("%d:%lf\n", i + 1, e);
-		add = add * (i + 1);
+	if (n > 6)
+		printf("Too big integer!\n");
+	else {
+
+		double precision = 1;
+		for (i = 0; i < n; i++)
+			precision /= 10;
+		i = 1;
+		printf("\n");
+		while (1 / add > precision){
+			e = e + 1 / add;
+			printf("%lf\n", e);
+			add = add * i;
+			i++;
+		}
 	}
 	return 0;
 }
